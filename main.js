@@ -68,7 +68,7 @@ const lvls = {
 };
 
 // Defualt Level
-let defualtLevel = "Easy";
+let defualtLevel = "Normal";
 let defualtLevelSeconds = lvls[defualtLevel];
 
 // Catch Selectors
