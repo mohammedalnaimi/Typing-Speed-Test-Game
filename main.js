@@ -98,6 +98,8 @@ input.onpaste = () => {
 startButton.onclick = function () {
   this.remove();
   input.focus();
+  document.querySelector(".name").remove()
+  document.querySelector(".the-word").style.marginTop = "-5px"
   // CallBack Generate Words Function
   genWords();
 };
