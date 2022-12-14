@@ -31,7 +31,7 @@ const words = [
   "Hello",
   // "Programming",
   "Code",
-  "Javascript",
+  // "Javascript",
   "Town",
   "Country",
   "Testing",
