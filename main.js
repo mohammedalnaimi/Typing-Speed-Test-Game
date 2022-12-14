@@ -29,7 +29,7 @@
 // Array Of Words
 const words = [
   "Hello",
-  "Programming",
+  // "Programming",
   "Code",
   // "Javascript",
   "Town",
