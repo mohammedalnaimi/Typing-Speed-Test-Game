@@ -148,7 +148,7 @@ function startTime() {
         } else {
           let congrats = document.createElement("span");
           congrats.className = "good";
-          congrats.innerHTML = "خالةأبراهيم";
+          congrats.innerHTML = "خالة أبراهيم";
           finishMessage.appendChild(congrats);
           // Remove Upcoming Words Box
           upcomingWords.remove();
