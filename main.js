@@ -30,34 +30,34 @@
 const words = [
   "Hello",
   // "Programming",
-  "Code",
-  // "Javascript",
-  "Town",
-  "Country",
-  "Testing",
-  "Youtube",
-  "Linkedin",
-  "Twitter",
-  "Github",
-  "Leetcode",
-  "Internet",
-  "Python",
-  "Scala",
-  // "Destructuring",
-  "Paradigm",
-  "Styling",
-  "Cascade",
-  // "Documentation",
-  "Coding",
-  "Funny",
-  "Working",
-  // "Dependencies",
-  "Task",
-  "Runner",
-  "Roles",
-  "Test",
-  "Rust",
-  "Playing",
+  // "Code",
+  // // "Javascript",
+  // "Town",
+  // "Country",
+  // "Testing",
+  // "Youtube",
+  // "Linkedin",
+  // "Twitter",
+  // "Github",
+  // "Leetcode",
+  // "Internet",
+  // "Python",
+  // "Scala",
+  // // "Destructuring",
+  // "Paradigm",
+  // "Styling",
+  // "Cascade",
+  // // "Documentation",
+  // "Coding",
+  // "Funny",
+  // "Working",
+  // // "Dependencies",
+  // "Task",
+  // "Runner",
+  // "Roles",
+  // "Test",
+  // "Rust",
+  // "Playing",
 ];
 
 // Setting Levels
@@ -148,7 +148,7 @@ function startTime() {
         } else {
           let congrats = document.createElement("span");
           congrats.className = "good";
-          congrats.innerHTML = "خالة أبراهيم";
+          congrats.innerHTML = "مبروك ربحت  خالة ابراهيم";
           finishMessage.appendChild(congrats);
           // Remove Upcoming Words Box
           upcomingWords.remove();
