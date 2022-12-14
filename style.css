@@ -53,6 +53,11 @@ body {
   padding: 20px;
   cursor: pointer;
 }
+/* @media (max-width: 767px) {
+  .start {
+    border-radius: 6px;
+  }
+} */
 .the-word {
   text-align: center;
   font-weight: bold;

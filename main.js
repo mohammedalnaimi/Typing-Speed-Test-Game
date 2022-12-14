@@ -29,7 +29,7 @@
 // Array Of Words
 const words = [
   "Hello",
-  "Programming",
+  // "Programming",
   "Code",
   "Javascript",
   "Town",
@@ -43,15 +43,15 @@ const words = [
   "Internet",
   "Python",
   "Scala",
-  "Destructuring",
+  // "Destructuring",
   "Paradigm",
   "Styling",
   "Cascade",
-  "Documentation",
+  // "Documentation",
   "Coding",
   "Funny",
   "Working",
-  "Dependencies",
+  // "Dependencies",
   "Task",
   "Runner",
   "Roles",
@@ -68,7 +68,7 @@ const lvls = {
 };
 
 // Defualt Level
-let defualtLevel = "Normal";
+let defualtLevel = "Easy";
 let defualtLevelSeconds = lvls[defualtLevel];
 
 // Catch Selectors
