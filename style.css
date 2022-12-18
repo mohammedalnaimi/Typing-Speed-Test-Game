@@ -172,6 +172,7 @@ body {
   font-size: 28px;
   text-align: center;
   cursor: pointer;
+  display: none;
 }
 
 @media (max-width: 767px) {
