@@ -242,6 +242,7 @@ function StartPlaying() {
           finishMessage.appendChild(congrats);
           playAgain.appendChild(playAgainSpan)
           input.remove();
+          timeLeftSpan.innerHTML = ""
           playAgain.style.display = "block"
           playAgainSpan.onclick = () => {
             window.location.reload()
@@ -258,6 +259,7 @@ function StartPlaying() {
         playAgain.appendChild(playAgainSpan)
         theWord.remove()
         input.remove();
+        timeLeftSpan.innerHTML = "0"
         playAgain.style.display = "block"
         playAgainSpan.onclick = () => {
           window.location.reload()
