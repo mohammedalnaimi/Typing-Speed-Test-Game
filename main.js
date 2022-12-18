@@ -234,12 +234,17 @@ function StartPlaying() {
           genWords();
         } else {
           let congrats = document.createElement("span");
+          let playAgainSpan = document.createElement("span");
           congrats.className = "good";
+          playAgainSpan.className = "play-again"
           congrats.innerHTML = "Congratz!";
+          playAgainSpan.innerHTML = "Play Again"
           finishMessage.appendChild(congrats);
-          // Remove Upcoming Words Box
-          // upcomingWords.remove();
+          playAgain.appendChild(playAgainSpan)
           input.remove();
+          playAgainSpan.onclick = () => {
+            window.location.reload()
+          }
         }
       } else {
         let gameOver = document.createElement("span");
