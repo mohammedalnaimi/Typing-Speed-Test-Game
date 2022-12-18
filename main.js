@@ -27,50 +27,86 @@
 */
 
 // Array Of Words
-const words = [
+const easyArr = [
   "Hello",
-  // "Programming",
   "Code",
-  // "Javascript",
   "Town",
-  "Country",
-  "Testing",
-  "Youtube",
-  "Linkedin",
-  "Twitter",
-  "Github",
-  "Leetcode",
-  "Internet",
-  "Python",
   "Scala",
-  // "Destructuring",
-  "Paradigm",
-  "Styling",
-  "Cascade",
-  // "Documentation",
-  "Coding",
   "Funny",
-  "Working",
-  // "Dependencies",
   "Task",
   "Runner",
   "Roles",
   "Test",
   "Rust",
+];
+const normalArr = [
+  "Country",
+  "Testing",
+  "Youtube",
+  "Twitter",
+  "Github",
+  "Python",
+  "Cascade",
+  "Coding",
+  "Working",
   "Playing",
+];
+const hardArr = [
+  "Programming",
+  "Javascript",
+  "Linkedin",
+  "Leetcode",
+  "Internet",
+  "Paradigm",
+  "Styling",
+  "Destructuring",
+  "Documentation",
+  "Dependencies",
 ];
 
 // Setting Levels
 const lvls = {
-  Easy: 5,
-  Normal: 3,
-  Hard: 2,
+  Easy: 6,
+  Normal: 5,
+  Hard: 4,
 };
 
-// Defualt Level
-let defualtLevel = "Easy";
-let defualtLevelSeconds = lvls[defualtLevel];
+let defualtLevel;
+let defualtLevelSeconds;
+let chooseLvl = document.querySelector(".choose-lvl");
 
+for (const key in lvls) {
+  // Create Div Element
+  let lvlDiv = document.createElement("div");
+  let radio = document.createElement("input"); //input element, text
+  radio.setAttribute("id", key);
+  radio.setAttribute("type", "radio");
+  radio.setAttribute("name", "stype");
+  radio.setAttribute("value", key);
+
+  let label = document.createElement("label");
+  label.setAttribute("for", key);
+  label.textContent = ` ${key} [ ${lvls[key]}s ]`;
+  lvlDiv.appendChild(radio);
+  lvlDiv.appendChild(label);
+  chooseLvl.appendChild(lvlDiv);
+  // Setting Level Name + Seconds + Score
+  radio.onclick = function () {
+    defualtLevel = this.value;
+    defualtLevelSeconds = lvls[defualtLevel];
+    lvlNameSpan.innerHTML = defualtLevel;
+    secondsSpan.innerHTML = defualtLevelSeconds;
+    timeLeftSpan.innerHTML = defualtLevelSeconds;
+    if (this.value === "Easy"){
+    scoreTotal.innerHTML = easyArr.length;
+    } if (this.value === "Normal") {
+      scoreTotal.innerHTML = normalArr.length;
+    } if (this.value === "Hard") {
+      scoreTotal.innerHTML = hardArr.length;
+    }
+    startButton.style.display = "block";
+  };
+}
 // Catch Selectors
 let startButton = document.querySelector(".start");
 let lvlNameSpan = document.querySelector(".message .lvl");
@@ -82,12 +118,7 @@ let timeLeftSpan = document.querySelector(".time span");
 let scoreGot = document.querySelector(".score .got");
 let scoreTotal = document.querySelector(".score .total");
 let finishMessage = document.querySelector(".finish");
-
-// Setting Level Name + Seconds + Score
-lvlNameSpan.innerHTML = defualtLevel;
-secondsSpan.innerHTML = defualtLevelSeconds;
-timeLeftSpan.innerHTML = defualtLevelSeconds;
-scoreTotal.innerHTML = words.length;
+let playAgain = document.querySelector(".reload");
 
 // Disable Paste Event
 input.onpaste = () => {
@@ -98,41 +129,97 @@ input.onpaste = () => {
 startButton.onclick = function () {
   this.remove();
   input.focus();
-  document.querySelector(".name").remove()
-  document.querySelector(".the-word").style.marginTop = "-5px"
+  chooseLvl.remove();
+  // document.querySelector(".name").remove();
+  document.querySelector(".the-word").style.marginTop = "-5px";
   // CallBack Generate Words Function
   genWords();
 };
 
 // Generate Words Function
 function genWords() {
-  // Get Random Word From Array
-  let randomWords = words[Math.floor(Math.random() * words.length)];
-  // Get Word Index
-  theWord.innerHTML = randomWords;
-  // Show The Random Word
-  let indexWord = words.indexOf(randomWords);
-  // Remove WordFrom Array
-  words.splice(indexWord, 1);
-  // Empty Upcoming Words
-  upcomingWords.innerHTML = "";
-  // Generate Words In Loop
-  for (let i = 0; i < words.length; i++) {
-    // Create Div Element
-    let div = document.createElement("div");
-    let text = document.createTextNode(words[i]);
-    div.appendChild(text);
-    upcomingWords.appendChild(div);
+  // Get Easy Array
+  if (defualtLevel === "Easy") {
+    // Get Random Word From Array
+    let randomEasyWords = easyArr[Math.floor(Math.random() * easyArr.length)];
+    // Get Word Index
+    theWord.innerHTML = randomEasyWords;
+    // Show The Random Word
+    let indexEasyWord = easyArr.indexOf(randomEasyWords);
+    // Remove WordFrom Array
+    easyArr.splice(indexEasyWord, 1);
+    // Empty Upcoming Words
+    upcomingWords.innerHTML = "";
+    // Generate Words In Loop
+    for (let i = 0; i < easyArr.length; i++) {
+      // Create Div Element
+      let div = document.createElement("div");
+      let text = document.createTextNode(easyArr[i]);
+      div.appendChild(text);
+      upcomingWords.appendChild(div);
+    }
   }
-  // CallBack Start Time Function
-  startTime();
+  // Get Normal Array
+  if (defualtLevel === "Normal") {
+    // Get Random Word From Array
+    let randomNormalWords =
+      normalArr[Math.floor(Math.random() * normalArr.length)];
+    // Get Word Index
+    theWord.innerHTML = randomNormalWords;
+    // Show The Random Word
+    let indexNormalWord = normalArr.indexOf(randomNormalWords);
+    // Remove WordFrom Array
+    normalArr.splice(indexNormalWord, 1);
+    // Empty Upcoming Words
+    upcomingWords.innerHTML = "";
+    // Generate Words In Loop
+    for (let i = 0; i < normalArr.length; i++) {
+      // Create Div Element
+      let div = document.createElement("div");
+      let text = document.createTextNode(normalArr[i]);
+      div.appendChild(text);
+      upcomingWords.appendChild(div);
+    }
+  }
+  // Get Hard Array
+  if (defualtLevel === "Hard") {
+    // Get Random Word From Array
+    let randomHardWords = hardArr[Math.floor(Math.random() * hardArr.length)];
+    // Get Word Index
+    theWord.innerHTML = randomHardWords;
+    // Show The Random Word
+    let indexHardWord = hardArr.indexOf(randomHardWords);
+    // Remove WordFrom Array
+    hardArr.splice(indexHardWord, 1);
+    // Empty Upcoming Words
+    upcomingWords.innerHTML = "";
+    // Generate Words In Loop
+    for (let i = 0; i < hardArr.length; i++) {
+      // Create Div Element
+      let div = document.createElement("div");
+      let text = document.createTextNode(hardArr[i]);
+      div.appendChild(text);
+      upcomingWords.appendChild(div);
+    }
+  }
+  // CallBack Start Playing Function
+  StartPlaying();
+  // Save Score In Local Storage
+  let dateNow = new Date();
+  window.localStorage.setItem(
+    "score",
+    `${scoreGot.innerHTML} True In` + ` ${dateNow}`
+  );
 }
 
-function startTime() {
+// Create Start Playing Function
+function StartPlaying() {
   timeLeftSpan.innerHTML = defualtLevelSeconds;
   let start = setInterval(() => {
     timeLeftSpan.innerHTML--;
-    if (timeLeftSpan.innerHTML === "0" || theWord.innerHTML.toLowerCase() === input.value.toLowerCase()) {
+    if (timeLeftSpan.innerHTML === "0" ||
+      theWord.innerHTML.toLowerCase() === input.value.toLowerCase()
+    ) {
       // Stop Timer
       clearInterval(start);
       // Compare Words
@@ -142,23 +229,34 @@ function startTime() {
         input.value = "";
         // Increase Score
         scoreGot.innerHTML++;
-        if (words.length > 0) {
-         // Call Generate Word Function
+        if (easyArr.length > 0 && normalArr.length > 0 && hardArr.length > 0) {
+          // Call Generate Word Function
           genWords();
         } else {
           let congrats = document.createElement("span");
           congrats.className = "good";
-          congrats.innerHTML = "مبروك ربحت خالة ابراهيم";
+          congrats.innerHTML = "Congratz!";
           finishMessage.appendChild(congrats);
           // Remove Upcoming Words Box
-          upcomingWords.remove();
+          // upcomingWords.remove();
+          input.remove();
         }
       } else {
         let gameOver = document.createElement("span");
+        let playAgainSpan = document.createElement("span");
         gameOver.className = "bad";
+        playAgainSpan.className = "play-again"
         gameOver.innerHTML = "Game Over";
+        playAgainSpan.innerHTML = "Play Again"
         finishMessage.appendChild(gameOver);
+        playAgain.appendChild(playAgainSpan)
+        theWord.remove()
+        input.remove();
+        playAgainSpan.onclick = () => {
+          window.location.reload()
+        }
       }
     }
   }, 1000);
 }
+console.log(window.localStorage.getItem("score"));
